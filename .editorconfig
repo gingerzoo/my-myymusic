@@ -1,0 +1,32 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]  #表示所有文件适用
+end_of_line = lf  #控制换行类型
+insert_final_newline = true
+
+# Matches multiple files with brace expansion notation
+# Set default charset
+
+charset = utf-8  #设计文件字符集
+
+# 4 space indentation
+
+indent_style = space  #缩进风格
+indent_size = 4  #缩进大小
+
+# Tab indentation (no size specified)
+# [Makefile]
+# indent_style = tab
+
+trim_trailing_whitespace=true #去除行尾的任意空白字符
+insert_final_newline=true#始终在文件末尾插入一个新行
+
+
+[*.md]
+
+max_line_length=off
+trim_trailing_whitespace=false

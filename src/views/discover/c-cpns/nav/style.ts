@@ -17,7 +17,8 @@ export const NavWrapper = styled.div`
         line-height: 35px;
         color: #fff;
 
-        &:hover {
+        &:hover,
+        &.active {
           background-color: #9b0909;
           border-radius: 20px;
         }

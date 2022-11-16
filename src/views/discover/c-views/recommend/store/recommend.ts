@@ -1,20 +1,34 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import { getRecommData } from "../service/recommend"
+import { getSliderData, getHotRecommend } from "../service/recommend"
 
 interface bannerType {
   banners: any[]
+  hotRecommend: any[]
 }
 
 const initialState: bannerType = {
-  banners: []
+  banners: [],
+  hotRecommend: []
 }
 
-export const getRecommendAction = createAsyncThunk(
+// 轮播图部分的网络请求
+export const getBannerAction = createAsyncThunk(
   "bannerdata",
   async (paras, { dispatch }) => {
-    const res = await getRecommData()
+    const res = await getSliderData()
     // console.log(recommData)
     dispatch(changeBannerData(res.banners))
+    //     return (recommData as any).data
+  }
+)
+
+//热门推荐模块的数据
+export const getHotRecommendAction = createAsyncThunk(
+  "hotRecommenddata",
+  async (paras, { dispatch }) => {
+    const res = await getHotRecommend(8)
+
+    dispatch(changeHotRecData(res.result))
     //     return (recommData as any).data
   }
 )
@@ -25,10 +39,13 @@ const recommenSlice = createSlice({
   reducers: {
     changeBannerData(state, { payload }) {
       state.banners = payload
+    },
+    changeHotRecData(state, { payload }) {
+      state.hotRecommend = payload
     }
   }
 })
 
 export default recommenSlice.reducer
 
-export const { changeBannerData } = recommenSlice.actions
+export const { changeBannerData, changeHotRecData } = recommenSlice.actions

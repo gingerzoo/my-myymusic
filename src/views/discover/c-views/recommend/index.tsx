@@ -4,8 +4,10 @@ import React, { memo, useEffect, useState } from "react"
 import type { ReactNode, FC } from "react"
 import { RecomWrapper } from "./style"
 import { useAppDispatch } from "@/store"
-import { getRecommendAction } from "./store/recommend"
+import { getBannerAction, getHotRecommendAction } from "./store/recommend"
 import TopSlider from "./c-cpns/top-slider"
+
+import HotRecommend from "./c-cpns/hot-recommend"
 
 interface IProps {
   children?: ReactNode
@@ -38,7 +40,8 @@ const Recommend: FC<IProps> = () => {
 
   const dispatch = useAppDispatch()
   useEffect(() => {
-    dispatch(getRecommendAction())
+    dispatch(getBannerAction())
+    dispatch(getHotRecommendAction())
   }, [])
 
   return (
@@ -48,7 +51,9 @@ const Recommend: FC<IProps> = () => {
         return <div key={index}>{item.imageUrl}</div>
       })} */}
       <div className="content wrapper_v2">
-        <div className="content-left">left</div>
+        <div className="content-left">
+          <HotRecommend />
+        </div>
         <div className="content-right">right</div>
       </div>
     </RecomWrapper>

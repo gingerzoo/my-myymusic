@@ -25,8 +25,13 @@ ul {
   margin: 0;
 }
 a {
-  color: #ccc;
+  color: #666;
+  font-size: 12px;
   text-decoration: none;
+}
+a:hover {
+  color: #666;
+  text-decoration: underline;
 }
 img {
   vertical-align: top;

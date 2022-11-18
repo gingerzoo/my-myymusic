@@ -4,6 +4,9 @@ import type { ReactNode, FC } from "react"
 import { HeaderV1Wrapper } from "./style"
 import { Link, NavLink } from "react-router-dom"
 
+/*
+推荐模块左侧部分的局部头部
+ */
 //定义接收参数的类型
 interface IProps {
   children?: ReactNode

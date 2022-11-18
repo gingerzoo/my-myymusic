@@ -4,10 +4,23 @@ import React, { memo, useEffect, useState } from "react"
 import type { ReactNode, FC } from "react"
 import { RecomWrapper } from "./style"
 import { useAppDispatch } from "@/store"
-import { getBannerAction, getHotRecommendAction } from "./store/recommend"
+import {
+  /*   getBannerAction,
+  getHotRecommendAction,
+  getNewAlbumAction,
+  getSetSingerAction, */
+  getRecommendAction,
+  getTopRankAction
+} from "./store/recommend"
+
 import TopSlider from "./c-cpns/top-slider"
 
 import HotRecommend from "./c-cpns/hot-recommend"
+import NewAlbums from "./c-cpns/new-albums"
+import TopRanking from "./c-cpns/top-ranking"
+import UseLogin from "./c-cpns/use-login"
+import SettleSinger from "./c-cpns/settle-singer"
+import HotAnchor from "./c-cpns/hot-anchor"
 
 interface IProps {
   children?: ReactNode
@@ -40,8 +53,14 @@ const Recommend: FC<IProps> = () => {
 
   const dispatch = useAppDispatch()
   useEffect(() => {
-    dispatch(getBannerAction())
+    /*  dispatch(getBannerAction())
     dispatch(getHotRecommendAction())
+    dispatch(getNewAlbumAction())
+    dispatch(getSetSingerAction()) */
+    dispatch(getTopRankAction())
+    dispatch(getRecommendAction())
+
+    // dispatch(getRecommendAction())
   }, [])
 
   return (
@@ -53,8 +72,14 @@ const Recommend: FC<IProps> = () => {
       <div className="content wrapper_v2">
         <div className="content-left">
           <HotRecommend />
+          <NewAlbums />
+          <TopRanking />
         </div>
-        <div className="content-right">right</div>
+        <div className="content-right">
+          <UseLogin />
+          <SettleSinger />
+          <HotAnchor />
+        </div>
       </div>
     </RecomWrapper>
   )

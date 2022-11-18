@@ -25,7 +25,38 @@ export const dicoverMenu = [
     link: "/discover/albums"
   }
 ]
-export const footerLinks = [
+
+export const footerLink = [
+  {
+    title: "网易开放平台",
+    link: "https://developer.music.163.com/st/developer"
+  },
+  {
+    title: "云村交易平台",
+    link: "https://music.163.com/st/web-sublicense/home"
+  },
+  {
+    title: "Amped Studio",
+    link: "https://web-amped.music.163.com/"
+  },
+  {
+    title: "用户认证",
+    link: "https://music.163.com/st/userbasic#/auth"
+  },
+  {
+    title: "独立音乐人",
+    link: "https://music.163.com/recruit"
+  },
+  {
+    title: "赞赏",
+    link: "https://music.163.com/web/reward"
+  },
+  {
+    title: "视频激励",
+    link: "https://music.163.com/uservideo#/plan"
+  }
+]
+export const footerClause = [
   {
     title: "服务条款",
     link: "https://st.music.163.com/official-terms/service"
@@ -39,27 +70,20 @@ export const footerLinks = [
     link: "https://st.music.163.com/official-terms/children"
   },
   {
-    title: "版权投诉指引",
+    title: "版权投诉",
     link: "https://music.163.com/st/staticdeal/complaints.html"
   },
   {
-    title: "意见反馈",
-    link: "#"
-  }
-]
-
-export const footerImages = [
-  {
-    link: "https://music.163.com/st/userbasic#/auth"
+    title: "投资者关系",
+    link: "http://ir.music.163.com/en/index.php"
   },
   {
-    link: "https://music.163.com/recruit"
+    title: "广告关系",
+    link: "https://music.163.com/ui/resource"
   },
   {
-    link: "https://music.163.com/web/reward"
-  },
-  {
-    link: "https://music.163.com/uservideo#/plan"
+    title: "联系我们",
+    link: "https://mp.music.163.com/600948c936c13f4d09752e73/contact-us-web/index.html?source=Music-Main-Station"
   }
 ]
 

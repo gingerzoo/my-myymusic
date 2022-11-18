@@ -58,6 +58,9 @@ export const ItemWrapper = styled.div`
   .bottom {
     font-size: 14px;
     color: #000;
+    /* 哇这个属性第一次见，表示允许的文字行数 */
+    line-clamp: 2;
+    text-overflow: ellipsis;
 
     margin-top: 8px;
   }

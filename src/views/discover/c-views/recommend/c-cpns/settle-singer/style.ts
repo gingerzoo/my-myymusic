@@ -46,9 +46,14 @@ export const SettleWrapper = styled.div`
       color: #333;
       font-weight: 700;
       text-align: center;
-      background-color: #fafafa;
-      border: 1px solid #c3c3c3;
+      /* background-color: #fafafa; */
+      background-position: 0 -223px;
+      /* border: 1px solid #c3c3c3; */
       /* background-position: right -100px; */
+
+      &:hover {
+        background-position: 0 -143px;
+      }
     }
   }
 `

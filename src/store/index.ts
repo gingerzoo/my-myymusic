@@ -9,10 +9,12 @@ import {
 
 import count from "./modules/text"
 import bannerReducer from "@/views/discover/c-views/recommend/store/recommend"
+import PlayReducer from "@/views/player/store/player"
 
 const store = configureStore({
   reducer: {
-    recommend: bannerReducer
+    recommend: bannerReducer,
+    player: PlayReducer
   }
 })
 

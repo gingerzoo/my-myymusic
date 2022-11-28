@@ -17,7 +17,7 @@ const NewAlbums: FC<IProps> = (props) => {
     newAlbum: state.recommend.newAlbum
   }))
 
-  console.log(newAlbum)
+  //   console.log(newAlbum)
 
   const refCarousel = useRef<ElementRef<typeof Carousel>>(null)
 

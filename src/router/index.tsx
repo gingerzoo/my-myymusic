@@ -31,7 +31,7 @@ import Songs from "@/views/discover/c-cpns/songs"*/
 const routes: RouteObject[] = [
   {
     path: "/",
-    element: <Navigate to="/discover" />
+    element: <Navigate to="/discover/recommend" />
   },
   {
     path: "/discover",

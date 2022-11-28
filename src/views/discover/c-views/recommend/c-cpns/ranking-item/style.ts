@@ -49,8 +49,51 @@ export const RankItemWrapper = styled.div`
       height: 32px;
 
       display: flex;
+      align-items: center;
       &:nth-child(-n + 3) span {
         color: #c10d0c;
+      }
+
+      &:hover {
+        .song-name {
+          width: 84px;
+        }
+        .operator {
+          width: 96px;
+          height: 17px;
+
+          display: flex;
+
+          .btn {
+            width: 17px;
+            height: 17px;
+            margin-left: 8px;
+            cursor: pointer;
+          }
+
+          .play {
+            background-position: -267px -268px;
+            &:hover {
+              background-position: -267px -288px;
+            }
+          }
+
+          .add {
+            position: relative;
+            top: 2px;
+            background-position: 0 -700px;
+            &:hover {
+              background-position: -22px -700px;
+            }
+          }
+
+          .favor {
+            background-position: -297px -268px;
+            &:hover {
+              background-position: -297px -288px;
+            }
+          }
+        }
       }
 
       .song-count {

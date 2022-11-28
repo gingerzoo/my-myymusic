@@ -4,3 +4,7 @@ declare namespace NodeJS {
     readonly REACT_APP_BASE_URL: "string"
   }
 }
+
+// declare const audio: {
+//   new (src?: string): HTMLAudioElement
+// }

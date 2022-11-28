@@ -12,22 +12,22 @@ interface IProps {
 }
 
 const TopRanking: FC<IProps> = (props) => {
-  const { topRank } = useAppSelector((state) => ({
+  //topRank默认为一个空数组
+  const { topRank = [] } = useAppSelector((state) => ({
     topRank: state.recommend.topRank
   }))
-  console.log("hi", topRank)
+  //   console.log("hi", topRank)
   return (
     <TopRankWrapper>
       <AreaHeaderV1 title="榜单" moreLink="/discover/ranking" />
       <div className="content recommend-top-bg">
-        {topRank[0] &&
-          topRank.map((item) => {
-            return (
-              <div key={item.id} className="item">
-                <RankingItem itemData={item} />
-              </div>
-            )
-          })}
+        {topRank.map((item) => {
+          return (
+            <div key={item.id} className="item">
+              <RankingItem itemData={item} />
+            </div>
+          )
+        })}
       </div>
     </TopRankWrapper>
   )

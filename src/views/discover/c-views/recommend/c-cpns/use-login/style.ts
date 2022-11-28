@@ -24,7 +24,7 @@ export const LoginWrapper = styled.div`
     background-position: 0 -195px;
     :hover {
       background-position: -110px -195px;
-      text-decoration:none;
+      text-decoration: none;
     }
   }
 `

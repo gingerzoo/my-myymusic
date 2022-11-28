@@ -38,7 +38,9 @@ const SettleSinger: FC<IProps> = (props) => {
         })}
       </ul>
       <div className="applyFor">
-        <a href="#">申请成为网易音乐人</a>
+        <a href="#" className="sprite_button">
+          申请成为网易音乐人
+        </a>
       </div>
     </SettleWrapper>
   )

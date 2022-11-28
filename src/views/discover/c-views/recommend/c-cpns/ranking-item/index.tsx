@@ -4,6 +4,8 @@ import type { ReactNode, FC } from "react"
 import { RankItemWrapper } from "./style"
 import { formatImgUrl } from "@/utils/format"
 import { Link } from "react-router-dom"
+import { useAppDispatch } from "@/store"
+import { getSongDetAction } from "@/views/player/store/player"
 
 interface IProps {
   children?: ReactNode
@@ -13,6 +15,13 @@ interface IProps {
 const RankItem: FC<IProps> = (props) => {
   const { itemData } = props
   const { tracks } = itemData
+
+  //拿到dispatch
+  const dispatch = useAppDispatch()
+
+  function playBtnHandle(id: number) {
+    dispatch(getSongDetAction(id))
+  }
   return (
     <RankItemWrapper>
       <div className="top">
@@ -34,6 +43,14 @@ const RankItem: FC<IProps> = (props) => {
             <div key={item.id} className="item">
               <span className="song-count">{index + 1}</span>
               <a className="song-name wrapno">{item.name}</a>
+              <div className="operator">
+                <div
+                  className="btn sprite_02 play"
+                  onClick={(e) => playBtnHandle(item.id)}
+                ></div>
+                <div className="btn sprite_icon2 add"></div>
+                <div className="btn sprite_02 favor"></div>
+              </div>
             </div>
           )
         })}

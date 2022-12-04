@@ -87,3 +87,34 @@ export function formatTime(time: number): string {
   //组装
   return `${formatMinutes}:${formatSeconds}`
 }
+
+//传入的必须是毫秒
+export function formatDateTime(time: number): string {
+  //毫秒变秒
+  const nowTime = new Date(time)
+  /* 获取月份和日期 */
+  //获取月份
+  const month = nowTime.getMonth() + 1
+  //获取日期
+  const day = nowTime.getDate()
+
+  /* 格式化时间 */
+  const nowMonth = String(month).padStart(2, "0")
+  const nowDay = String(day).padStart(2, "0")
+  //组装
+  return `${nowMonth}年${nowDay}月`
+}
+
+//传入的必须是毫秒
+export function formatArtist(artist: any[]): string {
+  let result = ""
+  let artistList: string[]
+  if (artist) {
+    artistList = artist.map((item, index) => {
+      return item.name
+    })
+    result = artistList.join(`/`)
+  }
+
+  return result
+}

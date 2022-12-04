@@ -78,7 +78,7 @@ const PlayBar: FC<IProps> = (props) => {
       AudioRef.current.src = getPlaySong(currentSong?.id)
     }
 
-    //之所以写这个是因为currentSong一旦发生变化代表着有“切歌”的行为，一般切歌后我们希望立即播放该歌曲
+    // 之所以写这个是因为currentSong一旦发生变化代表着有“切歌”的行为，一般切歌后我们希望立即播放该歌曲
     AudioRef.current
       ?.play()
       .then((res) => {
@@ -141,7 +141,6 @@ const PlayBar: FC<IProps> = (props) => {
       content: lyrics[nowIndex].text,
       duration: 0,
       key: "lyric",
-      className: "mylyric",
       style: { display: showList ? "none" : "block" }
     })
   }

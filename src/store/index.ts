@@ -10,11 +10,15 @@ import {
 import count from "./modules/text"
 import bannerReducer from "@/views/discover/c-views/recommend/store/recommend"
 import PlayReducer from "@/views/player/store/player"
+import SongsReduer from "@/views/discover/c-views/songs/store"
+import RankingReducer from "@/views/discover/c-views/ranking/store"
 
 const store = configureStore({
   reducer: {
     recommend: bannerReducer,
-    player: PlayReducer
+    player: PlayReducer,
+    songCatList: SongsReduer,
+    ranking: RankingReducer
   }
 })
 

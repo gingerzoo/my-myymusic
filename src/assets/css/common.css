@@ -74,6 +74,12 @@ body {
 .playpanel_bg {
   background: url(../img/playpanel_bg.png) no-repeat 0 9999px;
 }
+.cate_board {
+  background: url(../img/cate_board.png) no-repeat 0 9999px;
+}
+.table {
+  background: url(../img/table.png) no-repeat 0 9999px;
+}
 .ant-message-notice-content {
   position: fixed;
   left: 50%;

@@ -13,6 +13,8 @@ import theme from "./assets/theme"
 // import "./services/modules/test"
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
+//如何让界面主题变成哀悼主题！！！！！！！！！！
+// document.documentElement.style.filter = "grayscale(100%)"
 
 root.render(
   <Provider store={store}>

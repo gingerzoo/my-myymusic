@@ -41,8 +41,9 @@ const SongList: FC<IProps> = (props) => {
   const onChangeHandle = useCallback(
     (page: number) => {
       const newPage = page
-      setPage(newPage)
+      console.log(newPage)
       dispatch(getSongCateListAction(page))
+      setPage(newPage)
     },
     [nowPage]
   )
@@ -70,13 +71,14 @@ const SongList: FC<IProps> = (props) => {
           playlist.map((item, index) => {
             return (
               <div key={index} className="playlist-item">
-                <SongItem itemData={item} />
+                <SongItem itemData={item} width={140} />
               </div>
             )
           })}
       </div>
 
       <Pagination
+        pageSize={35}
         current={currentPage}
         total={total}
         onChangeHandle={onChangeHandle}

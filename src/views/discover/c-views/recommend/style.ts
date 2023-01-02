@@ -6,7 +6,7 @@ export const RecomWrapper = styled.div`
   > .content {
     border: 1px solid #d3d3d3;
     /* width: 980px; */
-    background: url(${require("@/assets/img/wrap-bg.png")}) repeat-y;
+    background: url(${require("@/assets/img/wrap_bg.png")}) repeat-y;
 
     display: flex;
     margin-top: 10px;

@@ -24,8 +24,8 @@ const RankComment: FC<IProps> = (props) => {
 
   const onChangeHandle = useCallback(
     (page: number) => {
-      setPage(page)
-      dispatch(getCurCommentAction(page))
+      //   setPage(page)
+      //   dispatch(getCurCommentAction(page))
     },
     [nowpage]
   )

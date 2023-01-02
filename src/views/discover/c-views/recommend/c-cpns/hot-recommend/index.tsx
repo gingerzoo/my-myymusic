@@ -25,7 +25,7 @@ const HotRecommend: FC<IProps> = (props) => {
 
       <div className="recommend-list">
         {hotRecommend.map((item, index) => {
-          return <SongItem key={item.id} itemData={item} />
+          return <SongItem key={item.id} itemData={item} width={140} />
         })}
       </div>
     </HotRecomWrapper>

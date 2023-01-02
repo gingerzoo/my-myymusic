@@ -96,7 +96,6 @@ export const getSongDetAction = createAsyncThunk<
     const lyricString = res.lrc.lyric
     // //歌词解析-歌词的格式化（将每一句歌词的字符串解析成一个个对象）
     const lyrics = parseLyric(lyricString)
-    console.log(lyrics)
     dispatch(changeLyricAction(lyrics))
   })
 })

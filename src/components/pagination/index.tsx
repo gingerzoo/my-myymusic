@@ -10,7 +10,7 @@ interface IProps {
   children?: ReactNode
   current: number
   total: number
-  pageSize?: number
+  pageSize: number
   onChangeHandle: (page: number, pageSize: number) => void
   //   nextBtnHandle: (IsNext: boolean) => void
 }

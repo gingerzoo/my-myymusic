@@ -1,3 +1,4 @@
+import Artist from "@/views/artist"
 import React from "react"
 import { RouteObject, Navigate } from "react-router-dom"
 
@@ -15,6 +16,19 @@ const Ranking = React.lazy(() => import("@/views/discover/c-views/ranking"))
 const Singers = React.lazy(() => import("@/views/discover/c-views/singers"))
 const Songs = React.lazy(() => import("@/views/discover/c-views/songs"))
 
+const ArtistAlbum = React.lazy(
+  () => import("@/views/artist/c-cpns/album-artist")
+)
+const ArtistMv = React.lazy(() => import("@/views/artist/c-cpns/mv-artist"))
+const ArtistDesc = React.lazy(() => import("@/views/artist/c-cpns/desc-artist"))
+const ArtistTopHot = React.lazy(() => import("@/views/artist/c-cpns/top-hot"))
+const RadioCate = React.lazy(
+  () => import("@/views/discover/c-views/DJradio/c-cpns/category")
+)
+const RadioHome = React.lazy(
+  () => import("@/views/discover/c-views/DJradio/c-cpns/home-radio")
+)
+
 /* import Discover from "@/views/discover"
 import Mine from "@/views/mine"
 import Download from "@/views/download"
@@ -31,7 +45,7 @@ import Songs from "@/views/discover/c-cpns/songs"*/
 const routes: RouteObject[] = [
   {
     path: "/",
-    element: <Navigate to="/discover/recommend" />
+    element: <Navigate to="/discover" />
   },
   {
     path: "/discover",
@@ -39,7 +53,7 @@ const routes: RouteObject[] = [
     children: [
       {
         /* 这里这个path要么写全："/discover/recommend" 要么只写recommend 但是不能写/recommend */
-        path: "recommend",
+        path: "/discover",
         element: <Recommend />
       },
       {
@@ -51,8 +65,18 @@ const routes: RouteObject[] = [
         element: <Songs />
       },
       {
-        path: "DJradio",
-        element: <DJradio />
+        path: "djradio",
+        element: <DJradio />,
+        children: [
+          {
+            path: "/discover/djradio",
+            element: <RadioHome />
+          },
+          {
+            path: "category",
+            element: <RadioCate />
+          }
+        ]
       },
       {
         path: "singers",
@@ -75,6 +99,29 @@ const routes: RouteObject[] = [
   {
     path: "/focus",
     element: <Focus />
+  },
+  {
+    path: "/artist",
+    // element: <Navigate to="/artist/tophot" />,
+    element: <Artist />,
+    children: [
+      {
+        path: "/artist",
+        element: <ArtistTopHot />
+      },
+      {
+        path: "album",
+        element: <ArtistAlbum />
+      },
+      {
+        path: "mv",
+        element: <ArtistMv />
+      },
+      {
+        path: "desc",
+        element: <ArtistDesc />
+      }
+    ]
   }
 ]
 

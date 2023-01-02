@@ -18,13 +18,14 @@ interface IProps {
     al: {
       picUrl: string
     }
+    tns?: any[]
   }
   itemIndex: number
 }
 
 const TableSongItem: FC<IProps> = (props) => {
   const { itemData, itemIndex, IsTopThree } = props
-  const { id, name, mv, dt, ar, al } = itemData
+  const { id, name, mv, dt, ar, al, tns } = itemData
 
   const dispatch = useAppDispatch()
   function playBtnHandle(id: number) {
@@ -50,7 +51,11 @@ const TableSongItem: FC<IProps> = (props) => {
             onClick={() => playBtnHandle(id)}
           ></span>
           <div className="fansl wrapno">
-            <span className="song-name ">{name}</span>
+            <span className="song-name ">
+              {name}
+
+              {tns && <i className="subp">-({tns[0]})</i>}
+            </span>
             {mv != 0 && <span className="mv-icon table"></span>}
           </div>
         </div>

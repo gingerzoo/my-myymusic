@@ -23,7 +23,7 @@ const Discover: FC<IProps> = (props) => {
 
       {/* 快去给我看outlet 插槽？指定子级路由呈现的位置 */}
       <NavHeader />
-      <Suspense>
+      <Suspense fallback="loading...">
         <Outlet />
       </Suspense>
     </div>

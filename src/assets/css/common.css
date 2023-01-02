@@ -2,6 +2,7 @@ body {
   font-size: 14px;
   font-family: "Circular", "PingFang-SC", "Hiragino Sans GB", "微软雅黑", "Microsoft YaHei", "Heiti SC";
   color: #ccc;
+  background: #f5f5f5;
   line-height: 1.15;
 }
 .clear-fix ::after {
@@ -12,6 +13,7 @@ body {
 .wrapno {
   /* 不换行且多余部分用省略号表示！这一套组合拳 */
   white-space: nowrap;
+  word-wrap: normal;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -22,6 +24,13 @@ body {
 .wrapper_v2 {
   width: 980px;
   margin: 0 auto;
+}
+.clear_fix::after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
 }
 .banner_sprite {
   background: url(../img/banner_sprite.png) 0 9999px;
@@ -79,6 +88,36 @@ body {
 }
 .table {
   background: url(../img/table.png) no-repeat 0 9999px;
+}
+.wrap_bg {
+  background: url(../img//wrap_bg.png) no-repeat 0 9999px;
+}
+.wrap2 {
+  background: url(../img/wrap2.png) no-repeat 0 9999px;
+}
+.wrap3 {
+  background: url(../img/wrap3.png) no-repeat 0 9999px;
+}
+.wrap4 {
+  background: url(../img/wrap4.png) no-repeat 0 9999px;
+}
+.singer_sprite {
+  background: url(../img/singer_sprite.png) no-repeat 0 9999px;
+}
+.ban_mask {
+  background: url(../img/ban_mask.png) no-repeat 0 9999px;
+}
+.tab {
+  background: url(../img/tab.png) no-repeat 0 9999px;
+}
+.icon3 {
+  background: url(../img/icon3.png) no-repeat 0 9999px;
+}
+.radio_bg {
+  background: url(../img/radio_bg.png) no-repeat 0 9999px;
+}
+.radio_slide {
+  background: url(../img/radio_slide.png) no-repeat 0 9999px;
 }
 .ant-message-notice-content {
   position: fixed;

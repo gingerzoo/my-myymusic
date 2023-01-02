@@ -8,11 +8,14 @@ export const TableSongItemWrapper = styled.tr<Iprops>`
   /* align-items: center; */
   width: 100%;
   font-size: 12px;
-  border: 1px solid #d3d3d3;
+  /* border: 1px solid #d3d3d3; */
+  &:nth-child(2n + 1) {
+    background: #f5f5f5;
+  }
   td {
-    /* width: 100%; */
     height: ${(props) => (props.IsTopThree ? "70px" : "30px")};
     padding: 6px 10px;
+    color: #333;
     /* display: flex;
     align-items: center; */
   }
@@ -50,6 +53,10 @@ export const TableSongItemWrapper = styled.tr<Iprops>`
     .song-name {
       /* max-width: 85%; */
       padding-right: 25px;
+      .subp {
+        color: #aeaeae;
+        font-style: normal;
+      }
     }
     .play-icon {
       width: 17px;

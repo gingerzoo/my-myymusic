@@ -12,13 +12,21 @@ import bannerReducer from "@/views/discover/c-views/recommend/store/recommend"
 import PlayReducer from "@/views/player/store/player"
 import SongsReduer from "@/views/discover/c-views/songs/store"
 import RankingReducer from "@/views/discover/c-views/ranking/store"
+import SingerReducer from "@/views/discover/c-views/singers/store"
+import ArtistReducer from "@/views/artist/store"
+import AlbumReducer from "@/views/discover/c-views/albums/store"
+import DjRadioReducer from "@/views/discover/c-views/DJradio/store"
 
 const store = configureStore({
   reducer: {
     recommend: bannerReducer,
     player: PlayReducer,
     songCatList: SongsReduer,
-    ranking: RankingReducer
+    ranking: RankingReducer,
+    singerCatList: SingerReducer,
+    artist: ArtistReducer,
+    album: AlbumReducer,
+    djRadio: DjRadioReducer
   }
 })
 

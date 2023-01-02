@@ -89,7 +89,7 @@ export function formatTime(time: number): string {
 }
 
 //传入的必须是毫秒
-export function formatDateTime(time: number): string {
+export function formatDateTime(time: number, needYear = false): string {
   //毫秒变秒
   const nowTime = new Date(time)
   /* 获取月份和日期 */
@@ -97,12 +97,15 @@ export function formatDateTime(time: number): string {
   const month = nowTime.getMonth() + 1
   //获取日期
   const day = nowTime.getDate()
+  //获取月份
+  const year = nowTime.getFullYear()
 
   /* 格式化时间 */
   const nowMonth = String(month).padStart(2, "0")
   const nowDay = String(day).padStart(2, "0")
   //组装
-  return `${nowMonth}年${nowDay}月`
+  if (needYear) return `${year}.${nowMonth}.${nowDay}`
+  else return `${nowMonth}月${nowDay}日`
 }
 
 //传入的必须是毫秒

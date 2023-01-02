@@ -37,7 +37,17 @@ const NewAlbums: FC<IProps> = (props) => {
                   <div className="album-list">
                     {newAlbum.length > 0 &&
                       newAlbum.slice(item * 5, (item + 1) * 5).map((album) => {
-                        return <AlbumItem key={album.id} itemData={album} />
+                        return (
+                          <AlbumItem
+                            key={album.id}
+                            itemData={album}
+                            singleArtist={false}
+                            picWidth={100}
+                            coverWidth={118}
+                            coverPosition={`0 -570px`}
+                            bigPlayIcon={false}
+                          />
+                        )
                       })}
                   </div>
                 </div>

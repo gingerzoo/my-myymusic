@@ -1,7 +1,9 @@
 import styled from "styled-components"
 
 export const PaginatonWrapper = styled.div`
+  margin: 20px auto;
   text-align: center;
+
   .control {
     width: 70px;
     height: 24px;

@@ -7,16 +7,17 @@ import { formatCount, formatImgUrl } from "@/utils/format"
 interface IProps {
   children?: ReactNode
   itemData: any
+  width: number
 }
 
 const SongItem: FC<IProps> = (props) => {
-  const { itemData } = props
+  const { itemData, width } = props
   const picUrl = itemData.picUrl || itemData.coverImgUrl
   return (
-    <ItemWrapper>
+    <ItemWrapper width={width}>
       <div className="top">
         {/* 这里图片地址相当于加了query参数，这个param属性是为了指定图片的大小为140x140 因为原本图片很大，我们直接从服务器获取的话不仅会影响首屏渲染速度还会减少性能损耗 */}
-        <img src={formatImgUrl(picUrl, 140)} />
+        <img src={formatImgUrl(picUrl, width)} />
         <div className="cover sprite_cover">
           <div className="info sprite_cover">
             <div>
@@ -27,7 +28,10 @@ const SongItem: FC<IProps> = (props) => {
           </div>
         </div>
       </div>
-      <div className="bottom">{itemData.name}</div>
+      <div className="bottom">
+        <span>{itemData.name}</span>
+        {itemData.accountId && <span className="sprite_icon2 sign_icon"></span>}
+      </div>
     </ItemWrapper>
   )
 }

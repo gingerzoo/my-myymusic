@@ -6,12 +6,12 @@ import { HeaderV3Wrapper } from "./style"
 interface IProps {
   children?: ReactNode
   title: string
-  submessage: string
+  submessage?: string
   moreText?: number
 }
 
 const AreaHeaderV3: FC<IProps> = (props) => {
-  const { title, submessage, moreText } = props
+  const { title, submessage, moreText, children } = props
   return (
     <HeaderV3Wrapper>
       <h3>
@@ -24,6 +24,7 @@ const AreaHeaderV3: FC<IProps> = (props) => {
           播放：<strong>{moreText}</strong>次
         </div>
       )}
+      {children}
     </HeaderV3Wrapper>
   )
 }

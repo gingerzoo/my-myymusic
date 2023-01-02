@@ -21,6 +21,7 @@ export const RankingLiWrapper = styled.div`
     }
   }
   .list-body {
+    border: 1px solid #d3d3d3;
     table {
       width: 100%;
       //原来是你小子！！！！！真辛苦找得我

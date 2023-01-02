@@ -1,13 +1,16 @@
 import styled from "styled-components"
 
-export const ItemWrapper = styled.div`
-  width: 140px;
+interface Ilike {
+  width: number
+}
+export const ItemWrapper = styled.div<Ilike>`
+  width: ${(props) => props.width + "px"};
   /* margin: 20px 20px 20px 0; */
   margin-bottom: 30px;
   .top {
     position: relative;
-    height: 140px;
-    width: 140px;
+    height: ${(props) => props.width + "px"};
+    width: ${(props) => props.width + "px"};
 
     img {
       height: 100%;
@@ -19,8 +22,8 @@ export const ItemWrapper = styled.div`
       left: 0;
 
       top: 0;
-      bottom: 0;
       right: 0;
+      bottom: 0;
 
       background-position: 0px 0px;
 

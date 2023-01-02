@@ -27,7 +27,7 @@ const Ranking: FC<IProps> = (props) => {
   }, [])
   return (
     <RankingWrapper>
-      <div className="content wrapper_v2">
+      <div className="content wrapper_v2 wrap3">
         <TopRanking />
         <div className="content-right">
           <RankingHeader />

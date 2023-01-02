@@ -96,9 +96,9 @@ export const getCurTopListAction = createAsyncThunk<
   })
 
   //顺便更新该歌单的评论！
-  getListComments(id).then((res) => {
-    dispatch(changeCurCommentsAction(res))
-  })
+  //   getListComments(id).then((res) => {
+  //     dispatch(changeCurCommentsAction(res))
+  //   })
 })
 
 const RankingSlice = createSlice({

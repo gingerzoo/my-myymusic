@@ -2,7 +2,7 @@
 export const dicoverMenu = [
   {
     title: "推荐",
-    link: "/discover/recommend"
+    link: "/discover"
   },
   {
     title: "排行榜",
@@ -251,4 +251,19 @@ export const artistCategories = [
       }
     ]
   }
+]
+
+export const artistInfo = [
+  { title: "热门作品", link: "/artist" },
+  { title: "所有专辑", link: "album" },
+  { title: "相关mv", link: "mv" },
+  { title: "艺人介绍", link: "desc" }
+]
+
+export const AlbumCate = [
+  { title: "全部", type: "ALL" },
+  { title: "华语", type: "ZH" },
+  { title: "欧美", type: "EA" },
+  { title: "韩国", type: "KR" },
+  { title: "日本", type: "JP" }
 ]

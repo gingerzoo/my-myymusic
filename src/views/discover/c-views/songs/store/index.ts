@@ -26,7 +26,6 @@ export const getSongCateListAction = createAsyncThunk<
 >("songsong", (par, { dispatch, getState }) => {
   const nowCategory = getState().songCatList.curCategory
   if (nowCategory) {
-    console.log(nowCategory)
     getSongCategoryList((par - 1) * 35, nowCategory)
       .then((res) => {
         dispatch(changeCurPageAction(par))

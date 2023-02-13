@@ -19,7 +19,7 @@ function App() {
 
       {/* 路由占位，一旦匹配到路径，相应组件在这里展示 */}
       <div className="main">
-        <Suspense fallback="loading...">{useRoutes(routes)}</Suspense>
+        <Suspense fallback={<div>Loading</div>}>{useRoutes(routes)}</Suspense>
       </div>
       <AppFooter />
       <PlayBar />

@@ -16,6 +16,7 @@ import SingerReducer from "@/views/discover/c-views/singers/store"
 import ArtistReducer from "@/views/artist/store"
 import AlbumReducer from "@/views/discover/c-views/albums/store"
 import DjRadioReducer from "@/views/discover/c-views/DJradio/store"
+import MvReducer from "@/views/mv/store"
 
 const store = configureStore({
   reducer: {
@@ -26,7 +27,8 @@ const store = configureStore({
     singerCatList: SingerReducer,
     artist: ArtistReducer,
     album: AlbumReducer,
-    djRadio: DjRadioReducer
+    djRadio: DjRadioReducer,
+    mv: MvReducer
   }
 })
 

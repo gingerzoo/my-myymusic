@@ -1,4 +1,5 @@
 import Artist from "@/views/artist"
+
 import React from "react"
 import { RouteObject, Navigate } from "react-router-dom"
 
@@ -28,6 +29,8 @@ const RadioCate = React.lazy(
 const RadioHome = React.lazy(
   () => import("@/views/discover/c-views/DJradio/c-cpns/home-radio")
 )
+
+const Mv = React.lazy(() => import("@/views/mv"))
 
 /* import Discover from "@/views/discover"
 import Mine from "@/views/mine"
@@ -70,6 +73,10 @@ const routes: RouteObject[] = [
         children: [
           {
             path: "/discover/djradio",
+            element: <Navigate to="/discover/djradio/radioHome" />
+          },
+          {
+            path: "radioHome",
             element: <RadioHome />
           },
           {
@@ -107,6 +114,10 @@ const routes: RouteObject[] = [
     children: [
       {
         path: "/artist",
+        element: <Navigate to="/artist/tophot" />
+      },
+      {
+        path: "tophot",
         element: <ArtistTopHot />
       },
       {
@@ -122,6 +133,11 @@ const routes: RouteObject[] = [
         element: <ArtistDesc />
       }
     ]
+  },
+  {
+    path: "/mv",
+    // element: <Navigate to="/artist/tophot" />,
+    element: <Mv />
   }
 ]
 

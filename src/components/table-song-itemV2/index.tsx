@@ -5,6 +5,7 @@ import { TableSongItemV2Wrapper } from "./style"
 import { formatArtist, formatImgUrl, formatTime } from "@/utils/format"
 import { useAppDispatch, useAppSelector } from "@/store"
 import { getSongDetAction } from "@/views/player/store/player"
+import { Link } from "react-router-dom"
 
 interface IProps {
   children?: ReactNode
@@ -50,7 +51,9 @@ const TableSongItemV2: FC<IProps> = (props) => {
 
               {alia.length > 0 && <i className="subp">-({alia[0]})</i>}
             </span>
-            {mv != 0 && <span className="mv-icon table"></span>}
+            {mv != 0 && (
+              <Link className="mv-icon table" to={`/mv?id=${mv}`}></Link>
+            )}
           </div>
         </div>
       </td>

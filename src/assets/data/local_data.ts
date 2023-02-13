@@ -254,7 +254,7 @@ export const artistCategories = [
 ]
 
 export const artistInfo = [
-  { title: "热门作品", link: "/artist" },
+  { title: "热门作品", link: "tophot" },
   { title: "所有专辑", link: "album" },
   { title: "相关mv", link: "mv" },
   { title: "艺人介绍", link: "desc" }

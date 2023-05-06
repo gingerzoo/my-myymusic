@@ -10,7 +10,7 @@ interface IProps {
 const MvPlay: FC<IProps> = (props) => {
   return (
     <MvPlayWrapper>
-      <video width="640" height="360" controls />
+      <video width="640" height="360" controls src="" />
     </MvPlayWrapper>
   )
 }

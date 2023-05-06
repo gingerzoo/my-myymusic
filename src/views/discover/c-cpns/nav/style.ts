@@ -18,7 +18,7 @@ export const NavWrapper = styled.div`
         color: #fff;
 
         &:hover,
-        &.active {
+        &.link-active {
           background-color: #9b0909;
           border-radius: 20px;
         }

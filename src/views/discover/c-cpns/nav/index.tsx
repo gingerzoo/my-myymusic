@@ -4,6 +4,7 @@ import type { ReactNode, FC } from "react"
 import { NavWrapper } from "./style"
 import { dicoverMenu } from "@/assets/data/local_data"
 import { NavLink } from "react-router-dom"
+import classNames from "classnames"
 
 interface IProps {
   children?: ReactNode
@@ -16,7 +17,14 @@ const NavHeader: FC<IProps> = (props) => {
         {dicoverMenu.map((item, index) => {
           return (
             <div key={index} className="nav-item">
-              <NavLink to={item.link}>{item.title}</NavLink>
+              <NavLink
+                to={item.link}
+                className={({ isActive }) =>
+                  classNames({ "link-active": isActive })
+                }
+              >
+                {item.title}
+              </NavLink>
             </div>
           )
         })}

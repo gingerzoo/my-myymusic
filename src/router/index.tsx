@@ -55,8 +55,12 @@ const routes: RouteObject[] = [
     element: <Discover />,
     children: [
       {
-        /* 这里这个path要么写全："/discover/recommend" 要么只写recommend 但是不能写/recommend */
         path: "/discover",
+        element: <Navigate to="/discover/recommand" />
+      },
+      {
+        /* 这里这个path要么写全："/discover/recommend" 要么只写recommend 但是不能写/recommend */
+        path: "recommand",
         element: <Recommend />
       },
       {

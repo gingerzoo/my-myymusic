@@ -10,11 +10,12 @@ import type { AxiosRequestConfig, AxiosResponse } from "axios"
 
 // 针对AxiosRequestConfig进行扩展（主要是让拦截器功能变得可选）
 
-export default interface LXRequsetConfig extends AxiosRequestConfig {
+export default interface LXRequsetConfig<T = AxiosResponse>
+  extends AxiosRequestConfig {
   interceptors?: {
     reqSuccessFn: (config: AxiosRequestConfig) => AxiosRequestConfig
     reqFailedFn?: (err: any) => any
-    resSuccessFn: (res: AxiosResponse) => AxiosResponse
+    resSuccessFn: (res: T) => T
     resFailedFn?: (err: any) => any
   }
 }

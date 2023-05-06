@@ -2,7 +2,7 @@
 export const dicoverMenu = [
   {
     title: "推荐",
-    link: "/discover"
+    link: "/discover/recommand"
   },
   {
     title: "排行榜",

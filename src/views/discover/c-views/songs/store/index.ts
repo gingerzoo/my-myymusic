@@ -21,14 +21,21 @@ const initialState: IsongType = {
 // < void,number, { state: IsongType }>
 export const getSongCateListAction = createAsyncThunk<
   void,
-  number,
+  {
+    page: number
+    order?: string
+  },
   { state: IRootState }
 >("songsong", (par, { dispatch, getState }) => {
   const nowCategory = getState().songCatList.curCategory
   if (nowCategory) {
-    getSongCategoryList((par - 1) * 35, nowCategory)
+    getSongCategoryList(
+      (par.page - 1) * 35,
+      nowCategory,
+      par.order ? par.order : "newest"
+    )
       .then((res) => {
-        dispatch(changeCurPageAction(par))
+        dispatch(changeCurPageAction(par.page))
         dispatch(changeSongListAction(res.playlists))
         dispatch(changeToatlAction(res.total))
       })

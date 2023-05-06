@@ -4,10 +4,8 @@ import type { ReactNode, FC } from "react"
 import { SongWrapper } from "./style"
 import SongsHeader from "./c-cpns/songs-header"
 import SongsList from "./c-cpns/songs-list"
-import { useAppDispatch, useAppSelector } from "@/store"
+import { useAppDispatch } from "@/store"
 import { getCategoryAction, getSongCateListAction } from "./store"
-import Pagination from "@/components/pagination"
-import { getSongCategory } from "./service"
 
 interface IProps {
   children?: ReactNode
@@ -16,7 +14,7 @@ interface IProps {
 const Songs: FC<IProps> = (props) => {
   const dispatch = useAppDispatch()
   useEffect(() => {
-    dispatch(getSongCateListAction(1))
+    dispatch(getSongCateListAction({ page: 1 }))
     dispatch(getCategoryAction())
   }, [])
   return (

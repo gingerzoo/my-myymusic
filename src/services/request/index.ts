@@ -67,7 +67,7 @@ class LXrequset {
   //注意这里不能直接在实例上加入拦截器，因为一些请求共享的是同一个实例，一旦加入那么这个方法会永远保留下来，因此需要我们自己手动调用，而不是交给axios处理
 
   //   第一个T：函数泛型  外界传入的希望的res类型  不传的话就是any类型
-  request<T = any>(config: LXRequsetConfig) {
+  request<T = any>(config: LXRequsetConfig<T>) {
     //单次请求的成功处理
     if (config.interceptors?.reqSuccessFn) {
       config = config.interceptors.reqSuccessFn(config)
@@ -89,7 +89,7 @@ class LXrequset {
         .then((res) => {
           //单次响应的失败处理
           if (config.interceptors?.resSuccessFn) {
-            // res = config.interceptors.resSuccessFn(res)
+            res = config.interceptors.resSuccessFn(res)
           }
           resolve(res)
         })

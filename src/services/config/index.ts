@@ -1,6 +1,6 @@
 export const BASE_URL = "http://codercba.com:9002"
 
-export const TIMEOUT = 10000
+export const TIMEOUT = 100000
 
 /* 如何区分开发环境和生产环境
 

@@ -18,6 +18,7 @@
     "classnames": "^2.3.2",
     "craco-less": "^2.1.0-alpha.0",
     "normalize.css": "^8.0.1",
+    "python-bridge": "^1.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",

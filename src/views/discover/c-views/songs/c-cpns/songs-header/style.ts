@@ -23,6 +23,10 @@ export const SongHDWrapper = styled.div`
       /* vertical-align: top; */
       color: #0c73c2 !important;
       border: 1px solid pink;
+
+      .choose-all {
+        pointer-events: none;
+      }
       em {
         /* position:absolute;
         top:10px; */

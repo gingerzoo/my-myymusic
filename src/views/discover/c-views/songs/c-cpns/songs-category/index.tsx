@@ -2,7 +2,7 @@ import React, { memo } from "react"
 
 import type { ReactNode, FC } from "react"
 import { CategoryWrapper } from "./style"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "@/store"
 import classNames from "classnames"
 import {
@@ -26,10 +26,12 @@ const ICategory: FC<IProps> = (props) => {
   }))
 
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
 
   function changeCateHandle(cate: string) {
+    navigate(`/discover/songs?cat=${cate}`)
     dispatch(changeCurCateAction(cate))
-    dispatch(getSongCateListAction(curPage))
+    dispatch(getSongCateListAction({ page: curPage }))
     closeShow()
   }
   return (

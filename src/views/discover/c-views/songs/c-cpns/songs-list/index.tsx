@@ -13,6 +13,7 @@ import {
 } from "../../store"
 import Pagination from "@/components/pagination"
 import { shallowEqual } from "react-redux"
+import AlbumItem from "@/components/album-item"
 
 interface IProps {
   children?: ReactNode
@@ -42,7 +43,7 @@ const SongList: FC<IProps> = (props) => {
     (page: number) => {
       const newPage = page
       console.log(newPage)
-      dispatch(getSongCateListAction(page))
+      dispatch(getSongCateListAction({ page: page }))
       setPage(newPage)
     },
     [nowPage]
@@ -71,7 +72,7 @@ const SongList: FC<IProps> = (props) => {
           playlist.map((item, index) => {
             return (
               <div key={index} className="playlist-item">
-                <SongItem itemData={item} width={140} />
+                <SongItem itemData={item} width={140} songlist={true} />
               </div>
             )
           })}

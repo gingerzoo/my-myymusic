@@ -8,10 +8,11 @@ interface IProps {
   children?: ReactNode
   itemData: any
   width: number
+  songlist?: boolean
 }
 
 const SongItem: FC<IProps> = (props) => {
-  const { itemData, width } = props
+  const { itemData, width, songlist } = props
   const picUrl = itemData.picUrl || itemData.coverImgUrl
   return (
     <ItemWrapper width={width}>
@@ -29,8 +30,16 @@ const SongItem: FC<IProps> = (props) => {
         </div>
       </div>
       <div className="bottom">
-        <span>{itemData.name}</span>
-        {itemData.accountId && <span className="sprite_icon2 sign_icon"></span>}
+        <p className="discribe wrapno">{itemData.name}</p>
+
+        {/* {itemData.accountId && <span className="sprite_icon2 sign_icon"></span>} */}
+        {songlist && (
+          <p className="creator">
+            <span>由</span>
+            <a> {itemData.creator.nickname}</a>
+            <img src={itemData.creator.avatarDetail?.identityIconUrl} />
+          </p>
+        )}
       </div>
     </ItemWrapper>
   )

@@ -59,12 +59,25 @@ export const ItemWrapper = styled.div<Ilike>`
   }
 
   .bottom {
-    font-size: 14px;
-    color: #000;
     /* 哇这个属性第一次见，表示允许的文字行数 */
-    line-clamp: 2;
-    text-overflow: ellipsis;
+    /* line-clamp: 2;
+    text-overflow: ellipsis; */
+    .discribe {
+      margin: 8px 0 3px;
+      font-size: 14px;
+      color: #000;
+    }
 
-    margin-top: 8px;
+    .creator > span {
+      font-size: 12px;
+      color: rgb(153, 153, 153);
+    }
+    .creator img {
+      display: inline-block;
+      height: 13px;
+      width: 13px;
+      vertical-align: middle;
+      margin-left: 2px;
+    }
   }
 `

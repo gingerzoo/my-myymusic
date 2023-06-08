@@ -16,7 +16,9 @@ const RankComment: FC<IProps> = (props) => {
   const { curComment } = useAppSelector((state) => ({
     curComment: state.ranking.curComment
   }))
-  const comments = curComment.comments
+  //   const comments = curComment.comments
+  console.log("这是没进来comment组件的意思吗")
+  console.log("curComment", curComment)
 
   const dispatch = useAppDispatch()
 
@@ -25,21 +27,31 @@ const RankComment: FC<IProps> = (props) => {
   const onChangeHandle = useCallback(
     (page: number) => {
       //   setPage(page)
-      //   dispatch(getCurCommentAction(page))
+      dispatch(getCurCommentAction({ type: 2, pageNum: page }))
     },
     [nowpage]
   )
   return (
     <RankCommentWrapper>
-      <AreaHeaderV3 title="评论" submessage={`共${curComment.total}条评论`} />
+      {curComment?.totalCount && (
+        <AreaHeaderV3
+          title="评论"
+          submessage={`共${curComment.totalCount}条评论`}
+        />
+      )}
+
       <div className="comment-list">
-        {comments.map((item, index) => {
-          return <CommentItem key={item.commentId} itemData={item} />
-        })}
+        {curComment?.comments &&
+          curComment.comments.map((item, index) => {
+            console.log("singel-commenr", item)
+            return <CommentItem key={item.commentId} itemData={item} />
+          })}
       </div>
       <Pagination
         current={nowpage}
-        total={Math.floor(curComment.total / 20)}
+        total={
+          curComment?.totalCount ? Math.floor(curComment.totalCount / 20) : 0
+        }
         onChangeHandle={onChangeHandle}
         pageSize={20}
       />

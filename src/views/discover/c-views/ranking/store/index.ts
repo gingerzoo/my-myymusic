@@ -1,8 +1,9 @@
 import { normalTopList, normalUpdateFreq } from "@/utils/data-handle"
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { getTopRank } from "../../recommend/service/recommend"
-import { getListComments, getTopList } from "../service"
+import { getTopList } from "../service"
 import { IRootState } from "@/store"
+import { getComments, Iccom } from "@/views/playlist/service"
 
 interface ItopItemType {
   name: string
@@ -16,15 +17,16 @@ interface ItoplistType {
   info: ItopItemType[]
 }
 
-interface Icomment {
-  total: number
-  comments: any[]
-}
+// interface Icomment {
+//   commentsTitle: string
+//   comments: any[]
+// }
 interface Iranking {
   //   curToplistId: number
-  curComment: Icomment
+  curComment: Iccom
   toplist: ItoplistType[]
   updateRreqlist: any[]
+  curPlaylistId: number
   curToplist: {
     id: number
     name: string
@@ -41,9 +43,10 @@ interface Iranking {
 const initialState: Iranking = {
   //   curToplistId: 19723756,
   curComment: {
-    total: 0,
-    comments: []
+    comments: [],
+    totalCount: 0
   },
+  curPlaylistId: 0,
   toplist: [],
   updateRreqlist: [],
   curToplist: {
@@ -73,13 +76,18 @@ export const getTopListAction = createAsyncThunk(
 
 export const getCurCommentAction = createAsyncThunk<
   void,
-  number,
+  {
+    type: number
+    pageNum: number
+  },
   { state: IRootState }
->("list-comment", (page, { dispatch, getState }) => {
-  const ListId = getState().ranking.curToplist.id
-  getListComments(ListId, (page - 1) * 20).then((res) => {
-    // console.log(res.comments)
-    dispatch(changeCurCommentsAction(res))
+>("list-comment", (par, { dispatch, getState }) => {
+  const ListId = getState().ranking.curPlaylistId
+  console.log("listId", ListId)
+  getComments(ListId, par.type, par.pageNum).then((res) => {
+    // console.log("origin-comments", res)
+    console.log("comments", res.data.comments)
+    dispatch(changeCurCommentsAction(res.data))
   })
 })
 
@@ -90,15 +98,21 @@ export const getCurTopListAction = createAsyncThunk<
 >("curToplist", (id, { dispatch, getState }) => {
   //   const curTopId = getState().ranking.curToplistId
   //获得指定榜单的相关信息
+  console.log("chuabru-nowId", id)
   getTopRank(id).then((res) => {
     //烦死了这个更新频率必须要到另一个接口去找
     dispatch(changeCurTopListAction(res.playlist))
+    // console.log("res.playlist.id", res.playlist.id)
+    dispatch(changeCurPlaylistIdAction(id))
   })
 
   //顺便更新该歌单的评论！
-  //   getListComments(id).then((res) => {
-  //     dispatch(changeCurCommentsAction(res))
-  //   })
+
+  getComments(id, 2, 1).then((res) => {
+    // console.log("origin-comments", res)
+    console.log("comments", res.data.comments)
+    dispatch(changeCurCommentsAction(res.data))
+  })
 })
 
 const RankingSlice = createSlice({
@@ -119,6 +133,9 @@ const RankingSlice = createSlice({
     },
     changeCurCommentsAction(state, { payload }) {
       state.curComment = payload
+    },
+    changeCurPlaylistIdAction(state, { payload }) {
+      state.curPlaylistId = payload
     }
   }
 })
@@ -130,5 +147,6 @@ export const {
   changeTopListAction,
   changeCurTopListAction,
   changeUpdateFreAction,
-  changeCurCommentsAction
+  changeCurCommentsAction,
+  changeCurPlaylistIdAction
 } = RankingSlice.actions

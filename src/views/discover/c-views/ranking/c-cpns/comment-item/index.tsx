@@ -3,34 +3,17 @@ import React, { memo } from "react"
 import type { ReactNode, FC } from "react"
 import { CommentItemWrapper } from "./style"
 import { formatImgUrl } from "@/utils/format"
+import { Icom } from "@/views/playlist/service"
 
 interface IProps {
   children?: ReactNode
-  itemData: {
-    user: {
-      userId: number
-      nickname: string
-      avatarUrl: string
-      vipRights: {
-        associator?: {
-          iconUrl: string
-        }
-        musicPackage?: {
-          iconUrl: string
-        }
-      }
-      avatarDetail: any
-    }
-    timeStr: string
-    likedCount: number
-    content: string
-    contentId: number
-  }
+  itemData: Icom
 }
 
 const CommentItem: FC<IProps> = (props) => {
   const { itemData } = props
-  const { nickname, avatarUrl, vipRights } = itemData.user
+  //   console.log("itemData", itemData)
+  const { nickname, avatarUrl, avatarDetail, vipRights } = itemData.user
   return (
     <CommentItemWrapper>
       <img
@@ -41,6 +24,7 @@ const CommentItem: FC<IProps> = (props) => {
       <div className="comment-detail">
         <div className="user-info">
           <a className="user-name">{itemData.user.nickname}</a>
+          {avatarDetail && <img src={avatarDetail.identityIconUrl}></img>}
           {vipRights?.musicPackage && (
             <img src={vipRights.musicPackage.iconUrl}></img>
           )}

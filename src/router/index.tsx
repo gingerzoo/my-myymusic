@@ -31,6 +31,7 @@ const RadioHome = React.lazy(
 )
 
 const Mv = React.lazy(() => import("@/views/mv"))
+const Playlist = React.lazy(() => import("@/views/playlist"))
 
 /* import Discover from "@/views/discover"
 import Mine from "@/views/mine"
@@ -142,6 +143,10 @@ const routes: RouteObject[] = [
     path: "/mv",
     // element: <Navigate to="/artist/tophot" />,
     element: <Mv />
+  },
+  {
+    path: "/playlist",
+    element: <Playlist />
   }
 ]
 

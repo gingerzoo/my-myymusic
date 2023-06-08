@@ -17,6 +17,7 @@ import ArtistReducer from "@/views/artist/store"
 import AlbumReducer from "@/views/discover/c-views/albums/store"
 import DjRadioReducer from "@/views/discover/c-views/DJradio/store"
 import MvReducer from "@/views/mv/store"
+import PlaylistReducer from "@/views/playlist/store"
 
 const store = configureStore({
   reducer: {
@@ -28,7 +29,8 @@ const store = configureStore({
     artist: ArtistReducer,
     album: AlbumReducer,
     djRadio: DjRadioReducer,
-    mv: MvReducer
+    mv: MvReducer,
+    playlist: PlaylistReducer
   }
 })
 

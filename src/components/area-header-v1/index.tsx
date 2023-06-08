@@ -58,7 +58,7 @@ const AreaHeaderV1: FC<IProps> = (props) => {
       <div
         className="right"
         onClick={() => {
-          titleItemClick("全部")
+          dispatch(changeCurCateAction("全部"))
         }}
       >
         {/* <Link to={moreLink}>更多</Li> */}

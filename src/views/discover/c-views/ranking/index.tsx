@@ -3,7 +3,11 @@ import React, { memo, useEffect } from "react"
 import type { ReactNode, FC } from "react"
 import { RankingWrapper } from "./style"
 import { useAppDispatch, useAppSelector } from "@/store"
-import { getCurTopListAction, getTopListAction } from "./store"
+import {
+  getCurCommentAction,
+  getCurTopListAction,
+  getTopListAction
+} from "./store"
 import classNames from "classnames"
 import { formatImgUrl } from "@/utils/format"
 import TopRanking from "./c-cpns/top-ranking"
@@ -24,6 +28,7 @@ const Ranking: FC<IProps> = (props) => {
   useEffect(() => {
     dispatch(getTopListAction())
     dispatch(getCurTopListAction(19723756))
+    // dispatch(getCurCommentAction({ type: 2, pageNum: 1 }))
   }, [])
   return (
     <RankingWrapper>

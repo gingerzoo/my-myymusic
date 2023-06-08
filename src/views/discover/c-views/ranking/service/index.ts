@@ -6,12 +6,13 @@ export function getTopList() {
   })
 }
 
-export function getListComments(id: number, offset = 0) {
+export function getListComments(type = 2, id: number, pageNo = 0) {
   return lxRequest1.request({
-    url: "/comment/playlist",
+    url: "/comment/new",
     params: {
+      type,
       id,
-      offset
+      pageNo
     }
   })
 }

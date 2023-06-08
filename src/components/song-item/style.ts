@@ -53,6 +53,9 @@ export const ItemWrapper = styled.div<Ilike>`
           width: 16px;
           height: 17px;
           background-position: 0 0;
+          &:hover {
+            background-position: 0 -60px;
+          }
         }
       }
     }
@@ -64,8 +67,10 @@ export const ItemWrapper = styled.div<Ilike>`
     text-overflow: ellipsis; */
     .discribe {
       margin: 8px 0 3px;
-      font-size: 14px;
-      color: #000;
+      a {
+        font-size: 14px;
+        color: #000;
+      }
     }
 
     .creator > span {
